@@ -15,9 +15,7 @@ private SpriteRenderer sr;
 public bool isImmune = false;
 private float immunityTime = 0f;
 public float immunityDuration = 1.5f;
-    // Start is called before the first frame update
-    void Start()
-    {
+
 void Start()
 {
     sr = GetComponent<SpriteRenderer>();
@@ -37,6 +35,7 @@ void Start()
         }
     }
     }
+
     void SpriteFlicker()
 {
     if(flickerTime < flickerDuration)
