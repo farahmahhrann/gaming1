@@ -12,7 +12,7 @@ public SpriteRenderer sr;
     {
         sr = GetComponent<SpriteRenderer>();
     }
-    public void Flip()
+ void Flip()
 {
     sr.flipX = !sr.flipX;
 }
@@ -20,7 +20,7 @@ void OnTriggerEnter2D (Collider2D other)
 {
     if (other.tag == "Player")
     {
-        FindObjectOfType<PlayerStats>().TakeDamage (damage);
+        FindObjectOfType<PlayerStats>().TakeDamage(damage);
         Flip();
     }
     else if (other.tag == "Wall")
@@ -29,9 +29,5 @@ void OnTriggerEnter2D (Collider2D other)
     }
 }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
