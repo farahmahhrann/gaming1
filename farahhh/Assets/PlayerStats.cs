@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
+    public Image healthBar;
     public static int score;
     public int health = 3;
 public int lives = 3;
@@ -54,12 +55,19 @@ public void TakeDamage(int damage)
     if (isImmune == false)
     {
         health = health - damage;
+        
+        healthBar.fillAmount = this.health / 3f;
+
         if (health < 0)
             health = 0;
+
         if (lives > 0 && health == 0)
         {
             FindObjectOfType<LevelManager>().RespawnPlayer();
             health = 3;
+            
+            healthBar.fillAmount = this.health / 3f;
+
             lives--;
         }
         else if (lives == 0 && health == 0)
