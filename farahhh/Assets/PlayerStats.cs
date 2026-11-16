@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
  using UnityEngine.UI;
+ using TMPro;
+  using UnityEngine.SceneManagement;
+
 public class PlayerStats : MonoBehaviour
 {
+    public TextMeshProUGUI scoreUI;
     public Image healthBar;
     public static int score;
     public int health = 3;
@@ -36,6 +40,7 @@ void Start()
             sr.enabled = true;
         }
     }
+    scoreUI.text =" "+ score;
     }
 
     void SpriteFlicker()
@@ -74,6 +79,7 @@ public void TakeDamage(int damage)
         {
             Debug.Log("Gameover");
             Destroy(this.gameObject);
+            SceneManager.LoadScene(3);
         }
         Debug.Log("Player Health:" + health.ToString());
         Debug.Log("Player Lives:" + lives.ToString());
